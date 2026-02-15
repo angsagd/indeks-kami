@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,7 +17,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Route::middleware('guest')->group(function () {
+    Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+    Route::post('login', 'Auth\LoginController@login');
+
+    Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+    Route::post('register', 'Auth\RegisterController@register');
+});
+
+Route::post('logout', 'Auth\LoginController@logout')->name('logout')->middleware('auth');
+
 Route::resource('kategori-se', 'KategoriSEController')->middleware('auth');
 Route::resource('kerangka-kerja', 'KerangkaKerjaController')->middleware('auth');
 Route::resource('tata-kelola', 'TataKelolaController')->middleware('auth');
