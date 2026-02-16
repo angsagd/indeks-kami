@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\IdentitasResponden;
 use App\TataKelola;
@@ -12,7 +13,6 @@ use App\Risiko;
 use App\PengelolaanAset;
 use App\Teknologi;
 use App\Traits\KamiTrait;
-use Auth;
 
 class HomeController extends Controller
 {

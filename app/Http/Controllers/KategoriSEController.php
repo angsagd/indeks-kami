@@ -7,9 +7,9 @@ use App\Parameter;
 use App\ParameterSkor;
 use App\IdentitasResponden;
 use Illuminate\Http\Request;
-use App\Traits\KamiTrait;;
-use Auth;
-use Session;
+use App\Traits\KamiTrait;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class KategoriSEController extends Controller
 {

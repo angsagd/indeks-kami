@@ -12,6 +12,7 @@ use App\Risiko;
 use App\KerangkaKerja;
 use App\PengelolaanAset;
 use App\Teknologi;
+use Illuminate\Support\Facades\DB;
 
 trait KamiTrait
 {
@@ -38,7 +39,7 @@ trait KamiTrait
 
     public function getEnumValues($table, $field)
     {
-        $type = \DB::select(\DB::raw("SHOW COLUMNS FROM " . $table . " WHERE Field = '" . $field . "'"))[0]->Type;
+        $type = DB::select(DB::raw("SHOW COLUMNS FROM " . $table . " WHERE Field = '" . $field . "'"))[0]->Type;
         preg_match('/^enum\((.*)\)$/', $type, $matches);
         $enum = collect(explode(',', $matches[1] ?? []))->map(function ($value) {
             return str_replace("'",'', $value);

@@ -8,8 +8,7 @@ use App\ParameterSkor;
 use App\IdentitasResponden;
 use App\Traits\KamiTrait;
 use Illuminate\Http\Request;
-
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class TataKelolaController extends Controller
 {

@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\IdentitasResponden;
 use Illuminate\Http\Request;
-use Auth;
-use Session;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class RespondenController extends Controller
 {

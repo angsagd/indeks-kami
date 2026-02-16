@@ -8,9 +8,8 @@ use App\ParameterSkor;
 use App\IdentitasResponden;
 use App\Traits\KamiTrait;
 use Illuminate\Http\Request;
-
-use Auth;
-use Session;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class RisikoController extends Controller
 {
