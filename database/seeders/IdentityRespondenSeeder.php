@@ -1,5 +1,8 @@
 <?php
 
+namespace Database\Seeders;
+
+use App\IdentitasResponden;
 use Illuminate\Database\Seeder;
 
 class IdentityRespondenSeeder extends Seeder
@@ -11,6 +14,6 @@ class IdentityRespondenSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\IdentitasResponden::class, 1)->create();
+        IdentitasResponden::factory()->count(1)->create();
     }
 }
