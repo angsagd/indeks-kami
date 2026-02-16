@@ -75,3 +75,7 @@ Untuk memulai peluncuran atau pemasang dan pengembangan aplikasi ini, anda bisa 
 
 Lisensi untuk aplikasi ini mengikuti kerangka kerja pembentuknya yaitu PHP framework Laravel : 
 The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Updated 2026
+
+Refactoring ke Laravel 12 dan PHP 8.3.
