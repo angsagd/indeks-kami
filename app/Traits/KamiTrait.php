@@ -39,9 +39,18 @@ trait KamiTrait
 
     public function getEnumValues($table, $field)
     {
-        $type = DB::select(DB::raw("SHOW COLUMNS FROM " . $table . " WHERE Field = '" . $field . "'"))[0]->Type;
+        if (!preg_match('/^[A-Za-z0-9_]+$/', $table) || !preg_match('/^[A-Za-z0-9_]+$/', $field)) {
+            return [];
+        }
+
+        $columns = DB::select("SHOW COLUMNS FROM `{$table}` WHERE Field = ?", [$field]);
+        if (!isset($columns[0]->Type)) {
+            return [];
+        }
+
+        $type = $columns[0]->Type;
         preg_match('/^enum\((.*)\)$/', $type, $matches);
-        $enum = collect(explode(',', $matches[1] ?? []))->map(function ($value) {
+        $enum = collect(explode(',', $matches[1] ?? ''))->filter()->map(function ($value) {
             return str_replace("'",'', $value);
         })->toArray();
         return $enum;
